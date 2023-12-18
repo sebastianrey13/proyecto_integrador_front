@@ -1,0 +1,35 @@
+.customTile {
+    position: relative;
+    height: 100%;
+}
+
+.fechaOcupada {
+    background-color: red !important;
+}
+
+.fechaOcupadaMarker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+}
+
+.react-calendar__tile--now {
+    background: #ffb61a !important;
+}
+
+.react-calendar__tile--active {
+    background: #f8c24c !important;
+    color: white;
+}
+
+.react-calendar__tile--hasActive {
+    background: #f8c24c !important;
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+    background: #f8c24c !important;
+}
