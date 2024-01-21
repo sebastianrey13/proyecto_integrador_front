@@ -15,7 +15,7 @@ function AñadirProducto() {
   const [ciudades, setCiudades] = useState([]);
 
   useEffect(() => {
-    axios.get("https://one023c04-grupo5-back.onrender.com/categories")
+    axios.get("http://localhost:8080/categories")
       .then((res) => {
         setCategorias(res.data)
       })
@@ -25,7 +25,7 @@ function AñadirProducto() {
   }, []);
 
   useEffect(() => {
-    axios.get("https://one023c04-grupo5-back.onrender.com/cities")
+    axios.get("http://localhost:8080/cities")
       .then((res) => {
         setCiudades(res.data)
       })
@@ -64,7 +64,7 @@ function AñadirProducto() {
 
     console.log(añadirProducto);
 
-    axios.post("https://one023c04-grupo5-back.onrender.com/products/create", añadirProducto, {
+    axios.post("http://localhost:8080/products/create", añadirProducto, {
       headers: {
         'Authorization': `Bearer ${infoLocalStorage.jwt}`
       }
@@ -93,7 +93,7 @@ function AñadirProducto() {
 
     const infoLocalStorage = JSON.parse(localStorage.getItem('jwtToken'));
 
-    axios.post(`https://one023c04-grupo5-back.onrender.com/images/create/${id}`, formData, {
+    axios.post(`http://localhost:8080/images/create/${id}`, formData, {
       headers: {
         'Authorization': `Bearer ${infoLocalStorage.jwt}`,
         'Content-Type': 'multipart/form-data'

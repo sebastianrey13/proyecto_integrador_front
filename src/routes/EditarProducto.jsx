@@ -14,7 +14,7 @@ function EditarProducto() {
   const [ciudades, setCiudades] = useState([]);
 
   useEffect(() => {
-    axios.get("https://one023c04-grupo5-back.onrender.com/categories")
+    axios.get("http://localhost:8080/categories")
       .then((res) => {
         setCategorias(res.data)
       })
@@ -24,7 +24,7 @@ function EditarProducto() {
   }, []);
 
   useEffect(() => {
-    axios.get("https://one023c04-grupo5-back.onrender.com/cities")
+    axios.get("http://localhost:8080/cities")
       .then((res) => {
         setCiudades(res.data)
       })
@@ -56,7 +56,7 @@ function EditarProducto() {
 
 
   const obtenerImagenes = (productId) => {
-    return axios.get(`https://one023c04-grupo5-back.onrender.com/images/product/${productId}`)
+    return axios.get(`http://localhost:8080/images/product/${productId}`)
       .then((imgres) => imgres.data)
       .catch((error) => {
         console.error("Error al obtener datos de imágenes de la API: ", error);
@@ -65,7 +65,7 @@ function EditarProducto() {
   };
 
   useEffect(() => {
-    axios.get(`https://one023c04-grupo5-back.onrender.com/products/${idProducto}`)
+    axios.get(`http://localhost:8080/products/${idProducto}`)
       .then((res) => {
         const product = res.data;
 
@@ -112,7 +112,7 @@ function EditarProducto() {
 
     console.log(editarProducto);
 
-    axios.put("https://one023c04-grupo5-back.onrender.com/products/update", editarProducto, {
+    axios.put("http://localhost:8080/products/update", editarProducto, {
       headers: {
         'Authorization': `Bearer ${infoLocalStorage.jwt}`
       }
@@ -142,7 +142,7 @@ function EditarProducto() {
 
     const infoLocalStorage = JSON.parse(localStorage.getItem('jwtToken'));
 
-    axios.put(`https://one023c04-grupo5-back.onrender.com/images/create/${id}`, formData, {
+    axios.put(`http://localhost:8080/images/create/${id}`, formData, {
       headers: {
         'Authorization': `Bearer ${infoLocalStorage.jwt}`,
         'Content-Type': 'multipart/form-data'

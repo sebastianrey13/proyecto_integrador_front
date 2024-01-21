@@ -22,7 +22,7 @@ function CardProducto(props) {
         };
 
         try {
-          const response = await axios.get(`https://one023c04-grupo5-back.onrender.com/favorites/by-user-and-product/${userId}/${props.id}`, {
+          const response = await axios.get(`http://localhost:8080/favorites/by-user-and-product/${userId}/${props.id}`, {
             headers,
           });
 
@@ -57,7 +57,7 @@ function CardProducto(props) {
       try {
         if (favorito) {
           // Si el producto ya está marcado como favorito, enviar una solicitud DELETE para quitarlo
-          await axios.delete(`https://one023c04-grupo5-back.onrender.com/favorites/by-user-and-product/${userId}/${props.id}`, {
+          await axios.delete(`http://localhost:8080/favorites/by-user-and-product/${userId}/${props.id}`, {
             headers: {
               'Authorization': `Bearer ${infoLocalStorage.jwt}`,
             },
@@ -66,7 +66,7 @@ function CardProducto(props) {
           setFavorito(false);
         } else {
           // Si el producto no está marcado como favorito, enviar una solicitud POST para agregarlo
-          await axios.post('https://one023c04-grupo5-back.onrender.com/favorites/create', {
+          await axios.post('http://localhost:8080/favorites/create', {
             product: {
               id: props.id,
             },

@@ -15,7 +15,7 @@ function Historial() {
     setLoading(true);
 
     // Obtener las reservas anteriores del usuario
-    axios.get(`https://one023c04-grupo5-back.onrender.com/reservations/by-user/${userID}`, {
+    axios.get(`http://localhost:8080/reservations/by-user/${userID}`, {
       headers: {
         'Authorization': `Bearer ${infoLocalStorage.jwt}`,
       },

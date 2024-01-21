@@ -44,7 +44,6 @@ function MenuMobile({ isLoggedIn }) {
 
     }, [isLoggedIn]);
 
-
     const handleToggle = () => {
         setDesplegado(!desplegado);
     };

@@ -19,7 +19,7 @@ function LoginPopup(props) {
             const infoLocalStorage = JSON.parse(localStorage.getItem('jwtToken'));
             const token = infoLocalStorage.jwt;
 
-            const response = await axios.get(`https://one023c04-grupo5-back.onrender.com/user/by-email/${correoUsuario}`, {
+            const response = await axios.get(`http://localhost:8080/user/by-email/${correoUsuario}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -47,7 +47,7 @@ function LoginPopup(props) {
             password: loginPassword,
         }
 
-        axios.post("https://one023c04-grupo5-back.onrender.com/api/auth/login", iniciarSesion)
+        axios.post("http://localhost:8080/api/auth/login", iniciarSesion)
             .then((res) => {
                 setError("");
                 localStorage.setItem("jwtToken", JSON.stringify(res.data));

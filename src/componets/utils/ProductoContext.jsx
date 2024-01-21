@@ -14,7 +14,7 @@ export const ProductContextProvider = ({ children }) => {
 
 
     const obtenerImagenes = (productId) => {
-        return axios.get(`https://one023c04-grupo5-back.onrender.com/images/product/${productId}`)
+        return axios.get(`http://localhost:8080/images/product/${productId}`)
             .then((imgres) => imgres.data)
             .catch((error) => {
                 console.error("Error al obtener datos de imágenes de la API: ", error);
@@ -25,7 +25,7 @@ export const ProductContextProvider = ({ children }) => {
 
 useEffect(() => {
     axios
-    .get("https://one023c04-grupo5-back.onrender.com/products")
+    .get("http://localhost:8080/products")
     .then((res) => {
         const promesasImagenes = res.data.map((producto) => {
         return obtenerImagenes(producto.id)
@@ -49,7 +49,7 @@ useEffect(() => {
     }, [reloadProducts]);
 
     useEffect(() => {
-        axios.get('https://one023c04-grupo5-back.onrender.com/categories')
+        axios.get('http://localhost:8080/categories')
             .then((res) => {
                 setCategorias(res.data)
             }).catch((error) => {

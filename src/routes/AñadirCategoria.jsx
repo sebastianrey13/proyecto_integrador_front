@@ -40,7 +40,7 @@ function AñadirCategoria() {
             }
         };
 
-        axios.post("https://one023c04-grupo5-back.onrender.com/categories/create", formData, config)
+        axios.post("http://localhost:8080/categories/create", formData, config)
             .then(response => {
                 console.log("Categoria creada");
                 console.log(response.data);

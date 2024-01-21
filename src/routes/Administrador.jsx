@@ -38,7 +38,7 @@ function Administrador() {
         setVerTablaProductos(true)
         setVerTablaCategorias(false)
         setLoading(true)
-        axios.get("https://one023c04-grupo5-back.onrender.com/products")
+        axios.get("http://localhost:8080/products")
             .then((res) => {
                 setProductos(res.data)
                 setLoading(false)
@@ -53,7 +53,7 @@ function Administrador() {
 
     const eliminarProducto = (id) => {
         const infoLocalStorage = JSON.parse(localStorage.getItem('jwtToken'));
-        axios.delete(`https://one023c04-grupo5-back.onrender.com/products/delete/${id}`, {
+        axios.delete(`http://localhost:8080/products/delete/${id}`, {
             headers: {
                 'Authorization': `Bearer ${infoLocalStorage.jwt}`
             }
@@ -89,7 +89,7 @@ function Administrador() {
         setVerTablaProductos(false)
         setVerTablaCategorias(true)
         setLoading(true)
-        axios.get("https://one023c04-grupo5-back.onrender.com/categories")
+        axios.get("http://localhost:8080/categories")
             .then((res) => {
                 setCategorias(res.data)
                 setLoading(false)
@@ -104,7 +104,7 @@ function Administrador() {
 
     const eliminarCategoria = (id) => {
         const infoLocalStorage = JSON.parse(localStorage.getItem('jwtToken'));
-        axios.delete(`https://one023c04-grupo5-back.onrender.com/categories/delete/${id}`, {
+        axios.delete(`http://localhost:8080/categories/delete/${id}`, {
             headers: {
                 'Authorization': `Bearer ${infoLocalStorage.jwt}`
             }

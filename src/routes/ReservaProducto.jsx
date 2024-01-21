@@ -40,7 +40,7 @@ const ReservaProducto = () => {
     // Obtener información del producto
     const fetchProductInfo = useCallback(async () => {
         try {
-            const response = await axios.get(`https://one023c04-grupo5-back.onrender.com/products/${productId}`);
+            const response = await axios.get(`http://localhost:8080/products/${productId}`);
             setProductInfo(response.data);
         } catch (error) {
             console.error('Error al obtener información del producto:', error);
@@ -51,7 +51,7 @@ const ReservaProducto = () => {
     // Obtener imágenes del producto
     const fetchProductImages = useCallback(async () => {
         try {
-            const response = await axios.get(`https://one023c04-grupo5-back.onrender.com/images/product/${productId}`);
+            const response = await axios.get(`http://localhost:8080/images/product/${productId}`);
             setProductImages(response.data);
         } catch (error) {
             console.error('Error al obtener imágenes del producto:', error);
@@ -67,7 +67,7 @@ const ReservaProducto = () => {
             };
 
             try {
-                const response = await axios.get(`https://one023c04-grupo5-back.onrender.com/user/by-email/${userEmail}`, { headers });
+                const response = await axios.get(`http://localhost:8080/user/by-email/${userEmail}`, { headers });
                 setUserInfo(response.data);
             } catch (error) {
                 console.error('Error al obtener información del usuario:', error);
@@ -116,7 +116,7 @@ const ReservaProducto = () => {
             };
 
             try {
-                const response = await axios.post('https://one023c04-grupo5-back.onrender.com/reservations/create', reservaData, { headers });
+                const response = await axios.post('http://localhost:8080/reservations/create', reservaData, { headers });
                 console.log('Reserva creada exitosamente:', response.data);
                 alert(`La reserva del producto ${response.data.product.name} se realizo satisfactoriamente`);
                 setLoading(false);

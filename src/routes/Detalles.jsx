@@ -27,7 +27,7 @@ function Detalles() {
     const [fechaFinSeleccionada, setFechaFinSeleccionada] = useState(null);
 
     const obtenerFechasReservadas = () => {
-        axios.get(`https://one023c04-grupo5-back.onrender.com/reservations/by-product/${idProducto}`)
+        axios.get(`http://localhost:8080/reservations/by-product/${idProducto}`)
             .then((res) => {
                 const reservas = res.data;
 
@@ -56,7 +56,7 @@ function Detalles() {
     };
 
     const obtenerImagenes = (productId) => {
-        return axios.get(`https://one023c04-grupo5-back.onrender.com/images/product/${productId}`)
+        return axios.get(`http://localhost:8080/images/product/${productId}`)
             .then((imgres) => imgres.data)
             .catch((error) => {
                 console.error("Error al obtener datos de imágenes de la API: ", error);
@@ -65,7 +65,7 @@ function Detalles() {
     };
 
     useEffect(() => {
-        axios.get(`https://one023c04-grupo5-back.onrender.com/products/${idProducto}`)
+        axios.get(`http://localhost:8080/products/${idProducto}`)
             .then((res) => {
                 const product = res.data;
 

@@ -31,7 +31,7 @@ function SignupPopup(props) {
 
 
     useEffect(() => {
-        axios.get("https://one023c04-grupo5-back.onrender.com/cities")
+        axios.get("http://localhost:8080/cities")
             .then(res => {
                 setCiudades(res.data);
             })
@@ -85,7 +85,7 @@ function SignupPopup(props) {
             role: rolSeleccionado,
         };
 
-        axios.post("https://one023c04-grupo5-back.onrender.com/user/create", registrarUsuario)
+        axios.post("http://localhost:8080/user/create", registrarUsuario)
             .then(response => {
                 setError('');
                 console.log("Usuario creado");

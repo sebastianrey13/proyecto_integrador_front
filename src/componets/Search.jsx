@@ -25,7 +25,7 @@ const Search = () => {
 
     const searchFunction = async (term) => {
         try {
-            const response = await axios.get(`https://one023c04-grupo5-back.onrender.com/products/by-input/${term}`);
+            const response = await axios.get(`http://localhost:8080/products/by-input/${term}`);
             setSuggestions(response.data);
             setProductoID(response.data[0]);
             console.log(productoID[0]);

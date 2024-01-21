@@ -16,7 +16,7 @@ function ProductosPorCategoria() {
     const [productos, setProductos] = useState([]);
 
     const obtenerImagenes = (productId) => {
-        return axios.get(`https://one023c04-grupo5-back.onrender.com/images/product/${productId}`)
+        return axios.get(`http://localhost:8080/images/product/${productId}`)
             .then((imgres) => imgres.data)
             .catch((error) => {
                 console.error("Error al obtener datos de imágenes de la API: ", error);
@@ -25,7 +25,7 @@ function ProductosPorCategoria() {
     };
 
     useEffect(() => {
-        axios.get(`https://one023c04-grupo5-back.onrender.com/products/by-category/${nombreCategoria}`)
+        axios.get(`http://localhost:8080/products/by-category/${nombreCategoria}`)
             .then((res) => {
                 const promesasImagenes = res.data.map((producto) => {
                     return obtenerImagenes(producto.id)
